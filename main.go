@@ -21,6 +21,8 @@ import (
 	"github.com/segmentio/kafka-go/compress"
 )
 
+const versionNumber = "v25.12.1"
+
 var version = "dev"
 
 type strSlice []string
@@ -155,7 +157,7 @@ func main() {
 	flag.Parse()
 
 	if showVersion {
-		fmt.Printf("kbomb version %s\n", version)
+		fmt.Printf("kbomb version %s-%s\n", versionNumber, version)
 		os.Exit(0)
 	}
 
