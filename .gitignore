@@ -30,3 +30,16 @@ go.work.sum
 # Editor/IDE
 # .idea/
 # .vscode/
+dist/kbomb-darwin-amd64
+dist/kbomb-darwin-amd64.zip
+dist/kbomb-darwin-arm64
+dist/kbomb-darwin-arm64.zip
+dist/kbomb-linux-amd64
+dist/kbomb-linux-amd64.zip
+dist/kbomb-linux-arm64
+dist/kbomb-linux-arm64.zip
+dist/kbomb-windows-amd64.zip
+dist/kbomb-windows-arm64.zip
+migration.json
+migration2.json
+kbomb

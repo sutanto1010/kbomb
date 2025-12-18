@@ -21,6 +21,8 @@ import (
 	"github.com/segmentio/kafka-go/compress"
 )
 
+var version = "dev"
+
 type strSlice []string
 
 func (s *strSlice) String() string {
@@ -131,6 +133,7 @@ func main() {
 	var batchTimeoutMs int
 	var async bool
 	var balancer string
+	var showVersion bool
 
 	flag.Var(&brokers, "brokers", "Comma-separated list of broker addresses (host:port)")
 	flag.StringVar(&topic, "topic", "", "Kafka topic to produce to")
@@ -148,7 +151,13 @@ func main() {
 	flag.IntVar(&batchTimeoutMs, "batch-timeout-ms", 10, "Writer batch timeout in ms")
 	flag.BoolVar(&async, "async", false, "Use async writes (fire-and-forget)")
 	flag.StringVar(&balancer, "balancer", "leastbytes", "Partition balancer: leastbytes,roundrobin,hash,crc32")
+	flag.BoolVar(&showVersion, "version", false, "Show version and exit")
 	flag.Parse()
+
+	if showVersion {
+		fmt.Printf("kbomb version %s\n", version)
+		os.Exit(0)
+	}
 
 	if len(brokers) == 0 {
 		brokers = strSlice{"localhost:9092"}
